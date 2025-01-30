@@ -55,7 +55,7 @@ contract DVNFeeLibMock is Ownable, IDVNFeeLib {
 
     mapping(uint32 dstEid => BlockTimeConfig) public dstBlockTimeConfigs;
 
-    constructor(uint32 _localEidV2, uint256 _nativeDecimalsRate) Ownable(msg.sender) {
+    constructor(uint32 _localEidV2, uint256 _nativeDecimalsRate) /* Ownable(msg.sender) */ {
         localEidV2 = _localEidV2;
         nativeDecimalsRate = _nativeDecimalsRate;
     }

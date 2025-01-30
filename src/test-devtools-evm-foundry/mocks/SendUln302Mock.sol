@@ -31,7 +31,7 @@ contract SendUln302Mock is SendUlnBase, SendLibBaseE2 {
         address _endpoint,
         uint256 _treasuryGasCap,
         uint256 _treasuryGasForFeeCap
-    ) Ownable(msg.sender) SendLibBaseE2(_endpoint, _treasuryGasCap, _treasuryGasForFeeCap) {
+    ) /* Ownable(msg.sender) */ SendLibBaseE2(_endpoint, _treasuryGasCap, _treasuryGasForFeeCap) {
         testHelper = TestHelperOz5(_verifyHelper);
     }
 
