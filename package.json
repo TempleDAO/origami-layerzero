@@ -1,0 +1,12 @@
+{
+    "name": "origami-layerzero",
+    "version": "1.0.0",
+    "description": "LayerZero contract forks for Origami",
+    "author": "TempleDAO",
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+      "@openzeppelin/contracts": "4.9.3",
+      "solidity-bytes-utils": "^0.8.0"
+    }
+  }
+  

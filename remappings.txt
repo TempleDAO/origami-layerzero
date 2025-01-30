@@ -1,0 +1,5 @@
+@openzeppelin/=node_modules/@openzeppelin/
+solidity-bytes-utils/=node_modules/solidity-bytes-utils/
+@layerzerolabs/lz-evm-protocol-v2/contracts/=src/lz-evm-protocol-v2/
+@layerzerolabs/lz-evm-messagelib-v2/contracts/=src/lz-evm-messagelib-v2/
+@layerzerolabs/lz-evm-v1-0.7/contracts/=src/lz-evm-v1-0.7/
