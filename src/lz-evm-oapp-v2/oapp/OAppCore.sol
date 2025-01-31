@@ -2,14 +2,14 @@
 
 pragma solidity ^0.8.20;
 
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { OwnableOFT } from "../access/OwnableOFT.sol";
 import { IOAppCore, ILayerZeroEndpointV2 } from "./interfaces/IOAppCore.sol";
 
 /**
  * @title OAppCore
  * @dev Abstract contract implementing the IOAppCore interface with basic OApp configurations.
  */
-abstract contract OAppCore is IOAppCore, Ownable {
+abstract contract OAppCore is IOAppCore, OwnableOFT {
     // The LayerZero endpoint associated with the given OApp
     ILayerZeroEndpointV2 public immutable endpoint;
 
@@ -40,7 +40,7 @@ abstract contract OAppCore is IOAppCore, Ownable {
      * @dev Set this to bytes32(0) to remove the peer address.
      * @dev Peer is a bytes32 to accommodate non-evm chains.
      */
-    function setPeer(uint32 _eid, bytes32 _peer) public virtual onlyOwner {
+    function setPeer(uint32 _eid, bytes32 _peer) public virtual onlyOFTOwner {
         _setPeer(_eid, _peer);
     }
 
@@ -77,7 +77,7 @@ abstract contract OAppCore is IOAppCore, Ownable {
      * @dev Only the owner/admin of the OApp can call this function.
      * @dev Provides the ability for a delegate to set configs, on behalf of the OApp, directly on the Endpoint contract.
      */
-    function setDelegate(address _delegate) public onlyOwner {
+    function setDelegate(address _delegate) public onlyOFTOwner {
         endpoint.setDelegate(_delegate);
     }
 }
