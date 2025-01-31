@@ -69,7 +69,7 @@ contract ReadLib1002Mock is ISendLib, ERC165, ReadLibBase, MessageLibBase {
         address _endpoint,
         uint256 _treasuryGasLimit,
         uint256 _treasuryGasForFeeCap
-    ) Ownable(msg.sender) MessageLibBase(_endpoint, ILayerZeroEndpointV2(_endpoint).eid()) {
+    ) /* Ownable(msg.sender) */ MessageLibBase(_endpoint, ILayerZeroEndpointV2(_endpoint).eid()) {
         treasuryGasLimit = _treasuryGasLimit;
         treasuryNativeFeeCap = _treasuryGasForFeeCap;
         testHelper = TestHelperOz5(_verifyHelper);

@@ -21,7 +21,7 @@ contract ReceiveUln302Mock is IReceiveUlnE2, ReceiveUlnBase, ReceiveLibBaseE2 {
     error LZ_ULN_InvalidConfigType(uint32 configType);
 
     // @dev oz4/5 breaking change... Ownable constructor
-    constructor(address _endpoint) Ownable(msg.sender) ReceiveLibBaseE2(_endpoint) {}
+    constructor(address _endpoint) /* Ownable(msg.sender) */ ReceiveLibBaseE2(_endpoint) {}
 
     function supportsInterface(bytes4 _interfaceId) public view override returns (bool) {
         return _interfaceId == type(IReceiveUlnE2).interfaceId || super.supportsInterface(_interfaceId);

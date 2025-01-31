@@ -50,7 +50,7 @@ contract SimpleMessageLibMock is Ownable, ERC165 {
     }
 
     // @dev oz4/5 breaking change... Ownable constructor
-    constructor(address payable _verifyHelper, address _endpoint) Ownable(msg.sender) {
+    constructor(address payable _verifyHelper, address _endpoint) /* Ownable(msg.sender) */ {
         testHelper = TestHelperOz5(_verifyHelper);
         endpoint = _endpoint;
         treasury = address(0x0);

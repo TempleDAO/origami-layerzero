@@ -49,7 +49,9 @@ contract EndpointV2Mock is
 
     /// @param _eid the unique Endpoint Id for this deploy that all other Endpoints can use to send to it
     // @dev oz4/5 breaking change... Ownable constructor
-    constructor(uint32 _eid, address _owner) Ownable(_owner) MessagingChannel(_eid) {}
+    constructor(uint32 _eid, address _owner) /* Ownable(_owner) */ MessagingChannel(_eid) {
+        _transferOwnership(_owner);
+    }
 
     /// @dev MESSAGING STEP 0
     /// @notice This view function gives the application built on top of LayerZero the ability to requests a quote
