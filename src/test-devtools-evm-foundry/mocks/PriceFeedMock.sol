@@ -31,7 +31,7 @@ contract PriceFeedMock is ILayerZeroPriceFeed, Ownable {
     // ============================ Constructor ===================================
 
     // @dev oz4/5 breaking change... Ownable constructor
-    constructor(address _priceUpdater) Ownable(msg.sender) {
+    constructor(address _priceUpdater) /* Ownable(msg.sender) */ {
         priceUpdater[_priceUpdater] = true;
         PRICE_RATIO_DENOMINATOR = 1e20;
         ARBITRUM_COMPRESSION_PERCENT = 47;

@@ -11,18 +11,30 @@ import { IOFT, OFTCore } from "./OFTCore.sol";
  */
 abstract contract OFT is OFTCore, ERC20 {
     /**
+    * @dev Args to avoid stack-too-deep when dealing with OFTs
+    * both in build/tests and also code coverage checks
+    */
+    struct ConstructorArgs {
+        /// @dev The name of the OFT.
+        string name;
+
+        /// @dev The symbol of the OFT.
+        string symbol;
+        
+        /// @dev The LayerZero endpoint address.
+        address lzEndpoint;
+
+        /// @dev The delegate capable of making OApp configurations inside of the endpoint.
+        address delegate;
+    }
+
+    /**
      * @dev Constructor for the OFT contract.
-     * @param _name The name of the OFT.
-     * @param _symbol The symbol of the OFT.
-     * @param _lzEndpoint The LayerZero endpoint address.
-     * @param _delegate The delegate capable of making OApp configurations inside of the endpoint.
+     * @param _args The constructor arguments of the OFT.
      */
     constructor(
-        string memory _name,
-        string memory _symbol,
-        address _lzEndpoint,
-        address _delegate
-    ) ERC20(_name, _symbol) OFTCore(decimals(), _lzEndpoint, _delegate) {}
+        ConstructorArgs memory _args
+    ) ERC20(_args.name, _args.symbol) OFTCore(decimals(), _args.lzEndpoint, _args.delegate) {}
 
     /**
      * @dev Retrieves the address of the underlying ERC20 implementation.

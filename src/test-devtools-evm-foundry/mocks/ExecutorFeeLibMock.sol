@@ -18,7 +18,7 @@ contract ExecutorFeeLibMock is Ownable, IExecutorFeeLib {
     uint32 private immutable localEidV2; // endpoint-v2 only, for read call
 
     // @dev oz4/5 breaking change... Ownable constructor
-    constructor(uint32 _localEidV2) Ownable(msg.sender) {
+    constructor(uint32 _localEidV2) /* Ownable(msg.sender) */ {
         localEidV2 = _localEidV2;
         nativeDecimalsRate = 1e18;
     }

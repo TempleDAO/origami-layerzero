@@ -58,6 +58,12 @@ abstract contract MessagingComposer is IMessagingComposer {
         emit ComposeDelivered(_from, _to, _guid, _index);
     }
 
+    // @note This causes a stack-too-depp
+    // LZ should use a struct to pass in this many parameters
+    // We don't need it for our (testing only) purposes however -- it's used in the EndpointV2 which
+    // we don't deploy -- not depended on by OFT or OFT Adapter
+
+    /*
     /// @param _from the address which sends the composed message
     /// @param _to the address which receives the composed message
     /// @param _guid the message guid
@@ -77,4 +83,5 @@ abstract contract MessagingComposer is IMessagingComposer {
     ) external {
         emit LzComposeAlert(_from, _to, msg.sender, _guid, _index, _gas, _value, _message, _extraData, _reason);
     }
+    */
 }

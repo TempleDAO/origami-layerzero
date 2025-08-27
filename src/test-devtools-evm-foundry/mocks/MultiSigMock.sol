@@ -89,7 +89,7 @@ abstract contract MultiSigMock {
         for (uint256 i = 0; i < quorum; i++) {
             bytes calldata signature = _signatures[i * 65:(i + 1) * 65];
             // @dev oz4/5 breaking change... return value from tryRecover
-            (address currentSigner, ECDSA.RecoverError error /*bytes32(signature.length)*/, ) = ECDSA.tryRecover(
+            (address currentSigner, ECDSA.RecoverError error /*, bytes32(signature.length)*/ ) = ECDSA.tryRecover(
                 messageDigest,
                 signature
             );
